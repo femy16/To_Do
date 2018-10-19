@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="/edit/{{task.id}}" method="POST">
+       <label for="edit_name">Name: </label>
+        <input type="text" name="edit_name" value="{{task.name}}" id="edit_name"/><br>
+        
+        <label for="edit_description">Description: </label>
+        <input type="text" name="edit_desc" value="{{task.description}}" id="edit_description"/><br>
+        
+        <label for="edit_urgent">Is it urgent: </label>
+        <input type="checkbox" name="urgent" id="edit_urgent" {% if task.urgent%} checked {%endif%}/><br>
+        
+        <label for="edit_done">Is it done: </label>
+        <input type="checkbox" name="done" id="edit_done" {% if task.done%} checked {%endif%}/><br>
+        
+    
+        <input type="submit" value="Save Changes"/><br>
+    </form>
+{%  endblock content %}

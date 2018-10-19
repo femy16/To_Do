@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1>Nice</h1>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>To Do List</h1>
+
+    <a href="/add"><input type="button" name="" value="Add me"/></a>
+    {% for t in tasks.values() %}<br>
+      
+      <h3 class="{% if t.urgent%}urgent{%endif%} {% if t.done%}done{%endif%}">{{ t.id }} /  {{ t.name }}  /  {{ t.description }}  /  Is it urgent:  {{t.urgent}}  /  Is it done: {{t.done}} </h3>
+      
+      
+      
+      <a href="/edit/{{t.id}}"><input type="submit" value="Set"/></a><br>
+      <!--<h3 style="{% if t.urgent%}color:red;{%endif%} {% if t.done%}text-decoration: line-through; {%endif%}">{{ t.id }} /  {{ t.name }}  /  {{ t.description }}  /  Is it urgent:  {{t.urgent}}  /  Is it done: {{t.done}} </h3>-->
+      <!--<a href="/edit/{{t.id}}"><input type="submit" value="Set"/></a><br>-->
+    {% endfor %}
+  
+{%  endblock content %}
