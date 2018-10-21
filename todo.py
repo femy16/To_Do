@@ -1,4 +1,5 @@
 from flask import Flask, render_template,request,redirect
+import os
 app = Flask(__name__)
 id=1
 tasks = {
@@ -56,7 +57,7 @@ def edit(id):
 		return render_template("edit_form.html", task=tasks[id])
  
 if __name__ == "__main__":
-	app.run(host='0.0.0.0',port=8080, debug=True)
+	app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', 8080)))
     
     
     
