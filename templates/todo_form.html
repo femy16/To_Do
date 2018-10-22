@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <form action='/todo_form' method='POST'>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" placeholder="What we need to do?"/><br>
+        
+        <label for="description">Description: </label>
+        <input type="text" name="desc" id="description" placeholder='description'/><br>
+        
+        <label for="urgent">Is it urgent: </label>
+        <input type="checkbox" name="urgent" id="urgent" /><br>
+        
+        
+        
+        <input type="submit" value="Submit"/><br>
+        
+    </form>
+{%  endblock content %}
